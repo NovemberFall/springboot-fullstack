@@ -42,7 +42,7 @@ jobs:
           REPO=novemberfall-react \
           TAG=${{ steps.build-number.outputs.BUILD_NUMBER }} \
           ../../.ci/build-publish.sh . \
-            --build-arg api_base_url=http://novemberfall-api-env.eba-pjkr5aj4.us-west-1.elasticbeanstalk.com:8080
+            --build-arg api_base_url=http://novemberfall-api-v0-env.eba-afmpg8ka.us-west-1.elasticbeanstalk.com:8080
       - name: Send Slack Message
         run: >                                                                       
           curl -X POST -H 'Content-type: application/json' 
@@ -87,7 +87,7 @@ jobs:
       - name: Send Slack Message
         run: >
           curl -X POST -H 'Content-type: application/json' 
-          --data '{"text":"Deployment and commit completed :github-check-mark: :party_blob: - http://novemberfall-api-env.eba-pjkr5aj4.us-west-1.elasticbeanstalk.com/"}' 
+          --data '{"text":"Deployment and commit completed :github-check-mark: :party_blob: - http://novemberfall-api-v0-env.eba-afmpg8ka.us-west-1.elasticbeanstalk.com/"}' 
           ${{ secrets.SLACK_WEBHOOK_URL }}
       - name: Send Slack Message
         if: always()
